@@ -1,0 +1,30 @@
+{
+    "name": "lanci/server",
+    "authors": [
+        {
+            "name": "Renan",
+            "email": "renan@divea.com.br"
+        }
+    ],
+    "repositories": [
+        {
+            "url": "https://github.com/tillkruss/nginx-fastcgi-cache.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "rhubarbgroup/redis-cache": "^2.0",
+        "tillkruss/nginx-fastcgi-cache": "*",
+        "yahnis-elsts/plugin-update-checker": "^4.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lanci\\": "./app"
+        }
+    },
+    "extra":{
+        "installer-paths":{
+            "./vendor/{$name}" : ["type:wordpress-plugin"]
+        }
+    }
+}

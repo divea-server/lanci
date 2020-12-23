@@ -1,0 +1,94 @@
+#lanci{
+	background:#e0e4e3;
+	margin:30px 30px 0 10px;
+	padding:2rem;
+	border-radius:10px;
+}
+#lanci .logo{
+	float:right;
+	height:30px;
+}
+#lanci h1{
+	margin:.5rem 0 2rem 0;
+	font-size:20px;
+	color:#2f3533;
+}
+
+
+#lanci .card{
+	border:none;
+	box-shadow:none;
+	border-radius:5px;
+	padding:1rem;
+	margin:0;
+	border:1px solid #e0e4e3;
+}
+#lanci .card + .card{
+	margin-top:1rem;
+}
+#lanci .card h2{
+	margin:0;
+	color:#2f3533;
+}
+#lanci .card table.form-table td,
+#lanci .card table.form-table th{
+	padding:10px 0;
+}
+#lanci code{
+	background: #F4F5F4;
+	color:#1C2E63;
+}
+
+
+#lanci .nav-tab-wrapper{
+	border-bottom:none;
+}
+#lanci .nav-tab{
+	border:none;
+	margin:0 .5rem 0 0;
+	padding:.5rem 1rem;
+	background:#f4f4f4;
+	color:#2f3533;
+
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	
+}
+#lanci .nav-tab.nav-tab-active{
+	color:#fff;
+	background:#3dc583;
+}
+#lanci .tab-content{
+	background:#fff;
+	padding:1rem;
+	margin-top:0rem;
+
+	border-top:1px solid #e0e4e3;
+
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+#lanci .tab-pane{
+	display:none;
+}
+#lanci .tab-pane.active{
+	display:block;
+}
+#lanci .message{
+	box-sizing: border-box;
+	width:100%;
+	padding:1rem;
+	background:white;
+	margin-bottom: 1rem;
+	border-radius:5px;
+	background:#3dc58330;
+	color:#0c7140;
+}

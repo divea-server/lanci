@@ -1,0 +1,13 @@
+*/**/.DS_Store
+*/.DS_Store
+.DS_Store
+
+.git/*
+.github/FUNDING.yml
+
+auth.json
+composer.lock
+
+/vendor/Nginx-FastCGI-Cache/.git/*
+/vendor/Nginx-FastCGI-Cache/.github/*
+
