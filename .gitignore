@@ -10,4 +10,3 @@ composer.lock
 
 /vendor/Nginx-FastCGI-Cache/.git/*
 /vendor/Nginx-FastCGI-Cache/.github/*
-
