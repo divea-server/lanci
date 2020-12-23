@@ -3,6 +3,6 @@
  	"version" : "1.1",
  	"download_url" : "https://github.com/divea-server/lanci/archive/master.zip",
  	"sections" : {
- 		"description" : "Plugin description here. You can use HTML."
+ 		"description" : "O plugin Lancí é um apanhado de diversas funcionalidades para otimizar seu Wordpress nos servidores da Dívea.<br><br><b>Gestão automática de Cache</b><br>Ele faz a gestão dos caches Regis e do Proxy do Nginx de forma automática, limpando-os automaticamente ao alterar, criar ou deletar um post ou fazer qualquer outro tipo de alteração.<ul><li>Redis 2.0.15</li><li>* Nginx Cache 1.0.5</li></ul><br><br><b>Inserção de tags</b><br>Um lugar só para administrar as principais tags de acompanhamento no dia a dia. Facebook Pixel, Google Analyitcs, Google Tag Manager e ainda um campo para colocar outras tags que precisar."
  	}
  }

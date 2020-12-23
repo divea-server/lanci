@@ -36,16 +36,24 @@
 		\Lanci\App::deactivate($plugin);
 	}
 
+	// verificando atualizações
+	$lanci_update = \Puc_v4_Factory::buildUpdateChecker(
+		'https://raw.githubusercontent.com/divea-server/lanci/master/release.json?flush_cache=true',
+		__FILE__,
+		"lanci"
+	);
+
+	// removendo a opção de desativar alguns plugins
+	add_filter('plugin_action_links', 'disable_plugin_deactivation', 10, 4);
+	function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $context ) {
+	 	if(array_key_exists("deactivate", $actions) && in_array($plugin_file, [
+	 		'lanci/lanci.php'
+	 	]))
+	 	unset($actions['deactivate']);
+		return $actions;
+	}
+
+
 	// iniciando plugin
-	add_action( 'init', '\Lanci\App::init');
-
-
-	// add_filter( 'plugin_action_links', 'disable_plugin_deactivation', 10, 4 );
-	// function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $context ) 
-	// {
-	 
-	//     if (array_key_exists( 'deactivate', $actions ) && in_array( $plugin_file, ['utilities-plugin/lanci.php'])
-	//         unset($actions['deactivate']);
-	//     return $actions;
-	// }
-	// 
+	add_action('init', '\Lanci\App::init');
+	

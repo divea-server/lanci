@@ -38,10 +38,6 @@ class App
 
 	static function update()
 	{
-		$lanci_update = \Puc_v4_Factory::buildUpdateChecker(
-			'https://github.com/lanci-server/utilities-plugin',
-			__FILE__,
-			"lanci-server"
-		);
+		
 	}
 }
