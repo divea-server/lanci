@@ -1,0 +1,8 @@
+ {
+ 	"name" : "Lanci",
+ 	"version" : "1.1",
+ 	"download_url" : "https://github.com/divea-server/lanci/archive/master.zip",
+ 	"sections" : {
+ 		"description" : "Plugin description here. You can use HTML."
+ 	}
+ }
