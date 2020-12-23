@@ -66,14 +66,14 @@
 		"sections" => [
 			"description" => "
 O plugin Lancí é um apanhado de diversas funcionalidades para otimizar seu Wordpress nos servidores da Dívea.
-
-= Gestão automática de Cache =
+<br><br>
+<h3>Gestão automática de Cache</h3>
 Ele faz a gestão dos caches Regis e do Proxy do Nginx de forma automática, limpando-os automaticamente ao alterar, criar ou deletar um post ou fazer qualquer outro tipo de alteração.
-	
-	* Redis 2.0.15
-  	* Nginx Cache 1.0.5
-
-= Inserção de tags =
+<ul>
+	<li>Redis 2.0.15</li>
+  	<li>Nginx Cache 1.0.5</li>
+</ul>
+<h3>Inserção de tags</h3>
 Um lugar só para administrar as principais tags de acompanhamento no dia a dia. Facebook Pixel, Google Analyitcs, Google Tag Manager e ainda um campo para colocar outras tags que precisar."
 		]
 	]));
