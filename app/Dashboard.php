@@ -52,7 +52,7 @@ class Dashboard
 			'parent'=> 'lanci',
 			'id' 	=> 'flush',
 			'title' => "Limpar cache",
-			'href' 	=> admin_url( add_query_arg( 'action', 'flush-cache', "options-general.php?page=lanci" ))
+			'href' 	=> wp_nonce_url(admin_url( add_query_arg( 'action', 'purge-cache', "options-general.php?page=lanci" )),'purge-cache')
 		));
 
 		$wp_admin_bar->add_node( array(
@@ -76,7 +76,7 @@ class Dashboard
 
 	static function config_page()
 	{
-		if( isset($_GET['action']) && $_GET['action'] == "purge-cache" && wp_verify_nonce( @$_GET[ '_wpnonce' ], 'purge-cache' )) {
+		if(isset($_GET['action']) && $_GET['action'] == "purge-cache" && wp_verify_nonce(@$_GET['_wpnonce'],'purge-cache')) {
 			Cache::flush();
 			set_transient('temporary_message', "Cache apagado");
 		}

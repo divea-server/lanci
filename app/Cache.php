@@ -41,8 +41,8 @@ class Cache
 
 			// limpa o autoptimize
 			if(class_exists("\autoptimizeCache"))
-            \autoptimizeCache::clearall();
-
+            $result = \autoptimizeCache::clearall();
+            
 			$completed = true;
 		}
 	}
