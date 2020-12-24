@@ -40,9 +40,8 @@ class Cache
 			self::nginxCacheFlush();
 
 			// limpa o autoptimize
-			if(class_exists("\autoptimizeCache"))
-            $result = \autoptimizeCache::clearall();
-            
+			self::autoptimizeFlush();
+			
 			$completed = true;
 		}
 	}
@@ -98,5 +97,30 @@ class Cache
 	{
 		$nginxPlugin = new \NginxCache;
 		return $nginxPlugin->purge_zone_once();
+	}
+
+	private static function autoptimizeFlush()
+	{
+		if( ! class_exists("\autoptimizeCache"))
+			return;
+
+		\autoptimizeCache::clearall();
+    	function rrmdir($src) {
+		    $dir = opendir($src);
+		    while(false !== ( $file = readdir($dir)) ) {
+		        if (( $file != '.' ) && ( $file != '..' )) {
+		            $full = $src . '/' . $file;
+		            if ( is_dir($full) ) {
+		                rrmdir($full);
+		            }
+		            else {
+		                unlink($full);
+		            }
+		        }
+		    }
+		    closedir($dir);
+		    rmdir($src);
+		}
+		rrmdir(WP_CONTENT_DIR."/cache/autoptimize");
 	}
 }
