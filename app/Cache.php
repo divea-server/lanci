@@ -75,7 +75,7 @@ class Cache
 	{
 		global $wp_filesystem;
 		$result = $wp_filesystem->copy(
-			WP_REDIS_PLUGIN_PATH . '/includes/object-cache.php',
+			LANCI_PATH . '/vendor/redis-cache/includes/object-cache.php',
 			WP_CONTENT_DIR . '/object-cache.php',
 			true,
 			FS_CHMOD_FILE
