@@ -4,7 +4,7 @@
 		Plugin Name: Lanci Server
 		Plugin URI:
 		Description: Otimizações do seu Servidor Lanci
-		Version: 1.2.1
+		Version: 1.2.2
 		Author: Divea Lanci
 		Author URI: http://divea.com.br
 	*/
@@ -75,7 +75,7 @@
 	// criando release
 	if( is_admin() && ! is_file(LANCI_PATH . "/release.json")) file_put_contents( LANCI_PATH . "/release.json", json_encode([
 	 	"name" 			=> "Lanci",
-	 	"version" 		=> "1.2.1",
+	 	"version" 		=> "1.2.2",
 	 	"download_url" 	=> "https://github.com/divea-server/lanci/archive/master.zip",
 		"sections" 		=> [
 			"description" => "

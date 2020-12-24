@@ -73,21 +73,12 @@ class Cache
 
 	private static function redisEnable()
 	{
-		global $wp_filesystem;
-		$result = $wp_filesystem->copy(
-			LANCI_PATH . '/vendor/redis-cache/includes/object-cache.php',
-			WP_CONTENT_DIR . '/object-cache.php',
-			true,
-			FS_CHMOD_FILE
-		);
-		do_action( 'redis_object_cache_enable', $result );
+		copy(LANCI_PATH . '/vendor/redis-cache/includes/object-cache.php', WP_CONTENT_DIR . '/object-cache.php');
 	}
 
 	private static function redisDisable()
 	{
-		global $wp_filesystem;
-		$result = $wp_filesystem->delete( WP_CONTENT_DIR . '/object-cache.php' );
-		do_action( 'redis_object_cache_disable', $result );
+		unlink(WP_CONTENT_DIR . '/object-cache.php');
 	}
 
 	private static function redisFlush()
