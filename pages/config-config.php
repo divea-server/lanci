@@ -4,7 +4,13 @@
 			<tr>
 				<th scope="row"><label>Limpar Cache</label></th>
 				<td>
-					<a href="<?php echo wp_nonce_url(admin_url( add_query_arg( 'action', 'purge-cache', "options-general.php?page=lanci" )),'purge-cache'); ?>" class="button button-secondary button-large delete">Limpar Redis e Nginx</a>
+					<a href="<?php echo wp_nonce_url(admin_url( add_query_arg( 'action', 'purge-cache', "options-general.php?page=lanci" )),'purge-cache'); ?>" class="button button-secondary button-large delete">
+						<?php if(class_exists("\autoptimizeCache")) : ?>
+							Limpar Autoptimize, Redis e Nginx
+						<?php else: ?>
+							Limpar Redis e Nginx
+						<?php endif; ?>
+					</a>
 				</td>
 			</tr>
 			<tr>
