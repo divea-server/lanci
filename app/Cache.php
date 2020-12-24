@@ -33,10 +33,17 @@ class Cache
 		static $completed = false;
 		if ( ! $completed ) {
 
+			// limpa o redis
 			self::redisFlush();
-			self::nginxCacheFlush();
-			$completed = true;
 
+			// limpa o nginx
+			self::nginxCacheFlush();
+
+			// limpa o autoptimize
+			if(class_exists("\autoptimizeCache"))
+            \autoptimizeCache::clearall();
+
+			$completed = true;
 		}
 	}
 
