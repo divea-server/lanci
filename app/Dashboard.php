@@ -67,7 +67,7 @@ class Dashboard
 	static function admin_styles()
 	{
 		global $pagenow;
-		if( ! ($pagenow == "options-general.php" && $_GET['page'] == "lanci"))
+		if( ! ($pagenow == "options-general.php" && isset($_GET['page']) && $_GET['page'] == "lanci"))
 			return;
 
 		wp_enqueue_style('lanci_admin_css', LANCI_PUBLIC_PATH . 'pages/assets/style.css', false, filemtime(LANCI_PATH."/pages/assets/style.css"));

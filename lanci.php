@@ -11,18 +11,29 @@
 
 	// composer autoload
 	require_once "vendor/autoload.php";
-
+	
 	define("LANCI_PATH", dirname(__FILE__));
 	define("LANCI_PUBLIC_PATH", plugin_dir_url(__FILE__));
+
+	require_once "required.php";
+
 
 	// inciando plugins-vendor
 	if(defined("LANCI_SERVER_ALIAS")) {
 
 		define("WP_REDIS_PREFIX", LANCI_SERVER_ALIAS."_");
+
+		if( ! class_exists("\NginxCache"))
 		require "vendor/Nginx-FastCGI-Cache/nginx-cache.php";
+
+		if( ! class_exists("\Rhubarb\RedisCache\Plugin"))
 		require "vendor/redis-cache/redis-cache.php";
 
+		if( ! class_exists("\CleanImageFilenames"))
+		require "vendor/clean-image-filenames/clean-image-filenames.php";
+
 	}
+
 
 	// ativando plugin
 	register_activation_hook( __FILE__, 'lanci_server_activate' );
@@ -30,11 +41,13 @@
 		\Lanci\App::activate();
 	}
 
+
 	// desativando plugin
 	register_deactivation_hook( __FILE__, 'lanci_server_deactivate' );
 	function lanci_server_deactivate($plugin) {
 		\Lanci\App::deactivate($plugin);
 	}
+
 
 	// verificando atualizações
 	$lanci_update = \Puc_v4_Factory::buildUpdateChecker(
@@ -42,6 +55,7 @@
 		__FILE__,
 		"lanci"
 	);
+
 
 	// removendo a opção de desativar alguns plugins
 	add_filter('plugin_action_links', 'disable_plugin_deactivation', 10, 4);
@@ -58,22 +72,31 @@
 	add_action('init', '\Lanci\App::init');
 	
 
-	file_put_contents( LANCI_PATH . "/release.json", json_encode([
-
- 	"name" => "Lanci",
- 	"version" => "1.1",
- 	"download_url" => "https://github.com/divea-server/lanci/archive/master.zip",
-		"sections" => [
+	// criando release
+	if( is_admin() && ! is_file(LANCI_PATH . "/release.json")) file_put_contents( LANCI_PATH . "/release.json", json_encode([
+	 	"name" 			=> "Lanci",
+	 	"version" 		=> "1.2",
+	 	"download_url" 	=> "https://github.com/divea-server/lanci/archive/master.zip",
+		"sections" 		=> [
 			"description" => "
-O plugin Lancí é um apanhado de diversas funcionalidades para otimizar seu Wordpress nos servidores da Dívea.
-<br><br>
-<h3>Gestão automática de Cache</h3>
-Ele faz a gestão dos caches Regis e do Proxy do Nginx de forma automática, limpando-os automaticamente ao alterar, criar ou deletar um post ou fazer qualquer outro tipo de alteração.
-<ul>
-	<li>Redis 2.0.15</li>
-  	<li>Nginx Cache 1.0.5</li>
-</ul>
-<h3>Inserção de tags</h3>
-Um lugar só para administrar as principais tags de acompanhamento no dia a dia. Facebook Pixel, Google Analyitcs, Google Tag Manager e ainda um campo para colocar outras tags que precisar."
+
+				O plugin Lancí é um apanhado de diversas funcionalidades para otimizar seu Wordpress nos servidores da Dívea.
+			
+				<h3>Gestão automática de Cache</h3>
+				Ele faz a gestão dos caches Regis e do Proxy do Nginx de forma automática, limpando-os automaticamente ao alterar, criar ou deletar um post ou fazer qualquer outro tipo de alteração.
+				
+				<h3>Inserção de tags</h3>
+				Um lugar só para administrar as principais tags de acompanhamento no dia a dia. Facebook Pixel, Google Analyitcs, Google Tag Manager e ainda um campo para colocar outras tags que precisar.
+
+				<h3>Limpa nome de arquivos</h3>
+				Caso você suba um arquivo com caracteres latinos no nome, eles são automaticamente removidos.
+
+				<h4>Dependências</h4>
+				<ul>
+					<li>Redis 2.0.15</li>
+				  	<li>Nginx Cache 1.0.5</li>
+				  	<li>Clean Image Filenames 1.3</li>
+				</ul>"
+			]
 		]
-	]));
+	));

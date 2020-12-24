@@ -15,7 +15,9 @@
     "require": {
         "rhubarbgroup/redis-cache": "^2.0",
         "tillkruss/nginx-fastcgi-cache": "*",
-        "yahnis-elsts/plugin-update-checker": "^4.10"
+        "yahnis-elsts/plugin-update-checker": "^4.10",
+        "upperdog/clean-image-filenames": "^1.3",
+        "tgmpa/tgm-plugin-activation": "^2.6"
     },
     "autoload": {
         "psr-4": {

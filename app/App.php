@@ -8,9 +8,6 @@ class App
 
 	static function init()
 	{
-		// iniciando atualizações
-		self::update();
-
 		// iniciando cache
 		Cache::init();
 
@@ -24,20 +21,20 @@ class App
 	static function activate()
 	{
 		if( ! defined("LANCI_SERVER_ALIAS")) {
-			die("Esse plugin é feito apenas para servidores Lancí");
+			wp_die("Esse plugin é feito apenas para servidores Lancí");
 		}
 
 		// habilitando cache
 		Cache::enable();
+
+		// adicionando opções do plugin clean_image_filenames
+		if ( false === get_option( 'clean_image_filenames_mime_types' ) ) {
+			add_option( 'clean_image_filenames_mime_types', 'images' );
+		}
 	}
 
 	static function deactivate($plugin)
 	{
 		Cache::deactivate($plugin);
-	}
-
-	static function update()
-	{
-		
 	}
 }
