@@ -1,6 +1,7 @@
 <?php
 
 namespace Lanci\Tag;
+use \Lanci\App;
 
 class FacebookPixel extends Tag
 {
@@ -8,7 +9,7 @@ class FacebookPixel extends Tag
 
 	public function get_data()
 	{
-		$option = @get_option("lanci")["facebook_pixel"];
+		$option = App::db()["facebook_pixel"];
 		if(empty($option))
 			throw new \Exception("sem dados");
 

@@ -4,7 +4,7 @@ namespace Lanci;
 
 class App
 {
-	static $version = "1.0";
+	static $version = "1.2.3";
 
 	static function init()
 	{
@@ -36,5 +36,10 @@ class App
 	static function deactivate($plugin)
 	{
 		Cache::deactivate($plugin);
+	}
+
+	static function db()
+	{
+		return json_decode(@get_option("lanci"),1);
 	}
 }

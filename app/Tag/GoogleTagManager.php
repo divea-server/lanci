@@ -1,6 +1,7 @@
 <?php
 
 namespace Lanci\Tag;
+use \Lanci\App;
 
 class GoogleTagManager extends Tag
 {
@@ -8,7 +9,7 @@ class GoogleTagManager extends Tag
 
 	public function get_data()
 	{
-		$option = @get_option("lanci")["google_tag_manager"];
+		$option = App::db()["google_tag_manager"];
 		if(empty($option))
 			throw new \Exception("sem dados");
 

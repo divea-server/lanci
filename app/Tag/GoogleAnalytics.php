@@ -1,6 +1,7 @@
 <?php
 
 namespace Lanci\Tag;
+use \Lanci\App;
 
 class GoogleAnalytics extends Tag
 {
@@ -8,7 +9,7 @@ class GoogleAnalytics extends Tag
 
 	public function get_data()
 	{
-		$option = @get_option("lanci")["google_analytics"];
+		$option = App::db()["google_analytics"];
 		if(empty($option))
 			throw new \Exception("sem dados");
 			

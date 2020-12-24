@@ -1,6 +1,7 @@
 <?php
 
 namespace Lanci\Tag;
+use \Lanci\App;
 
 class Outros extends Tag
 {
@@ -11,11 +12,11 @@ class Outros extends Tag
 
 	public function render_header($data)
 	{
-		return @get_option("lanci")["outros_header"];
+		return App::db()["outros_header"];
 	}
 
 	public function render_body($data)
 	{
-		return @get_option("lanci")["outros_body"];
+		return App::db()["outros_body"];
 	}
 }
