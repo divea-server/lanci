@@ -15,8 +15,8 @@
 	define("LANCI_PATH", dirname(__FILE__));
 	define("LANCI_PUBLIC_PATH", plugin_dir_url(__FILE__));
 
+	// recomendando outros plugins
 	require_once "required.php";
-
 
 	// inciando plugins-vendor
 	if(defined("LANCI_SERVER_ALIAS")) {

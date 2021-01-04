@@ -26,11 +26,11 @@
 				'slug'      	=> 'duplicate-post',
 				'required'  	=> false,
 			],
-			[
-				'name'        	=> 'Yoast SEO',
-				'slug'        	=> 'wordpress-seo',
-				'is_callable' 	=> 'wpseo_init',
-			],
+			// [
+			// 	'name'        	=> 'Yoast SEO',
+			// 	'slug'        	=> 'wordpress-seo',
+			// 	'is_callable' 	=> 'wpseo_init',
+			// ],
 		];
 
 		$config = [
