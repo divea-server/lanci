@@ -620,7 +620,7 @@ class WP_Object_Cache {
         if ( ! class_exists( 'Predis\Client' ) ) {
             $predis = sprintf(
                 '%s/redis-cache/dependencies/predis/predis/autoload.php',
-                dirname(dirname(__DIR__))
+                 WP_CONTENT_DIR . "/plugins/lanci/vendor"
             );
 
             if ( is_readable( $predis ) ) {
