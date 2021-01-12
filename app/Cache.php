@@ -13,9 +13,7 @@ class Cache
 	static function enable()
 	{
 		// habilitando redis
-		$redisPlugin = \Rhubarb\RedisCache\Plugin::instance();
-		if (self::redisCheck())
-			self::redisEnable();
+		self::redisEnable();
 
 		// cache_zone do nginx proxy
 		add_option("nginx_cache_path", sprintf("/home/%s/cache_zone", LANCI_SERVER_ALIAS));
