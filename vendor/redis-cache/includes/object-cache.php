@@ -620,7 +620,7 @@ class WP_Object_Cache {
         if ( ! class_exists( 'Predis\Client' ) ) {
             $predis = sprintf(
                 '%s/redis-cache/dependencies/predis/predis/autoload.php',
-                defined( 'WP_PLUGIN_DIR' ) ? WP_PLUGIN_DIR : WP_CONTENT_DIR . '/plugins'
+                dirname(dirname(__DIR__))
             );
 
             if ( is_readable( $predis ) ) {
