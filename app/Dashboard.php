@@ -66,6 +66,10 @@ class Dashboard
 
 	static function admin_styles()
 	{
+		if(is_admin())
+		wp_enqueue_style('lanci_hide_css', LANCI_PUBLIC_PATH . 'pages/assets/hide.css', false, filemtime(LANCI_PATH."/pages/assets/hide.css"));
+
+
 		global $pagenow;
 		if( ! ($pagenow == "options-general.php" && isset($_GET['page']) && $_GET['page'] == "lanci"))
 			return;

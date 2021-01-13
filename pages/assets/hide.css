@@ -1,0 +1,7 @@
+*[data-dismissible="pro_release_notice"],
+*[data-dismissible="ao-img-opt-plug-123"],
+.hello-elementor-install-elementor,
+#duplicate-post-notice.is-dismissible
+{
+    display: none !important;
+}
