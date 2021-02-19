@@ -26,8 +26,7 @@ class App
 
 		// habilitando cache
 		Cache::enable();
-		Cache::flush();
-
+		
 		// adicionando opções do plugin clean_image_filenames
 		if ( false === get_option( 'clean_image_filenames_mime_types' ) ) {
 			add_option( 'clean_image_filenames_mime_types', 'images' );

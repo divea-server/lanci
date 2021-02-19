@@ -6,6 +6,9 @@ class Cache
 {
 	static function init()
 	{
+		if(is_admin())
+			self::redisFlush();
+
 		// adicionando eventos para limpar cache automaticamente
 		self::autoFlush();
 	}
@@ -14,22 +17,30 @@ class Cache
 	{
 		// habilitando redis
 		self::redisEnable();
-
+		
 		// cache_zone do nginx proxy
 		add_option("nginx_cache_path", sprintf("/home/%s/cache_zone", LANCI_SERVER_ALIAS));
+
+		self::flush();
 	}
 
 	static function deactivate($plugin)
 	{
-		$redisPlugin = \Rhubarb\RedisCache\Plugin::instance();
-		$redisPlugin->on_deactivation($plugin);
+		self::flush();
+
+		// Redis
+		// $redisPlugin = \Rhubarb\RedisCache\Plugin::instance();
+		// $redisPlugin->on_deactivation($plugin);
+		self::redisDisable();
+
+		// Nginx Deactivate
 		delete_option("nginx_cache_path");
 	}
 
 	static function flush() 
 	{
-		static $completed = false;
-		if ( ! $completed ) {
+		// static $completed = false;
+		// if ( ! $completed ) {
 
 			// limpa o redis
 			self::redisFlush();
@@ -40,8 +51,8 @@ class Cache
 			// limpa o autoptimize
 			self::autoptimizeFlush();
 			
-			$completed = true;
-		}
+		// 	$completed = true;
+		// }
 	}
 
 	static function autoFlush()
@@ -87,8 +98,7 @@ class Cache
 
 	private static function redisFlush()
 	{
-		global $wp_object_cache;
-		return $wp_object_cache->flush(0);
+		return wp_cache_flush();
 	}
 
 	private static function nginxCacheFlush()
@@ -103,22 +113,7 @@ class Cache
 			return;
 
 		\autoptimizeCache::clearall();
-    	function rrmdir($src) {
-		    $dir = opendir($src);
-		    while(false !== ( $file = readdir($dir)) ) {
-		        if (( $file != '.' ) && ( $file != '..' )) {
-		            $full = $src . '/' . $file;
-		            if ( is_dir($full) ) {
-		                rrmdir($full);
-		            }
-		            else {
-		                unlink($full);
-		            }
-		        }
-		    }
-		    closedir($dir);
-		    rmdir($src);
-		}
+    	
 		rrmdir(WP_CONTENT_DIR."/cache/autoptimize");
 	}
 }

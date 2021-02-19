@@ -57,19 +57,39 @@
 	);
 
 
-	// removendo a opção de desativar alguns plugins
-	add_filter('plugin_action_links', 'disable_plugin_deactivation', 10, 4);
-	function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $context ) {
-	 	if(array_key_exists("deactivate", $actions) && in_array($plugin_file, [
-	 		'lanci/lanci.php'
-	 	]))
-	 	unset($actions['deactivate']);
-		return $actions;
+	if( ! function_exists("rrmdir")) {
+		function rrmdir($src) {
+		    $dir = opendir($src);
+		    while(false !== ( $file = readdir($dir)) ) {
+		        if (( $file != '.' ) && ( $file != '..' )) {
+		            $full = $src . '/' . $file;
+		            if ( is_dir($full) ) {
+		                rrmdir($full);
+		            }
+		            else {
+		                unlink($full);
+		            }
+		        }
+		    }
+		    closedir($dir);
+		    rmdir($src);
+		}
 	}
 
 
+	// removendo a opção de desativar alguns plugins
+	// add_filter('plugin_action_links', 'disable_plugin_deactivation', 10, 4);
+	// function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $context ) {
+	//  	if(array_key_exists("deactivate", $actions) && in_array($plugin_file, [
+	//  		'lanci/lanci.php'
+	//  	]))
+	//  	unset($actions['deactivate']);
+	// 	return $actions;
+	// }
+
+
 	// iniciando plugin
-	add_action('init', '\Lanci\App::init');
+	add_action('init', '\Lanci\App::init', 0);
 	
 
 	// criando release

@@ -43,17 +43,17 @@
     },
     {
         "name": "composer/installers",
-        "version": "v1.9.0",
-        "version_normalized": "1.9.0.0",
+        "version": "v1.10.0",
+        "version_normalized": "1.10.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/composer/installers.git",
-            "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca"
+            "reference": "1a0357fccad9d1cc1ea0c9a05b8847fbccccb78d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/composer/installers/zipball/b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
-            "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
+            "url": "https://api.github.com/repos/composer/installers/zipball/1a0357fccad9d1cc1ea0c9a05b8847fbccccb78d",
+            "reference": "1a0357fccad9d1cc1ea0c9a05b8847fbccccb78d",
             "shasum": ""
         },
         "require": {
@@ -64,18 +64,19 @@
             "shama/baton": "*"
         },
         "require-dev": {
-            "composer/composer": "1.6.* || 2.0.*@dev",
-            "composer/semver": "1.0.* || 2.0.*@dev",
-            "phpunit/phpunit": "^4.8.36",
-            "sebastian/comparator": "^1.2.4",
+            "composer/composer": "1.6.* || ^2.0",
+            "composer/semver": "^1 || ^3",
+            "phpstan/phpstan": "^0.12.55",
+            "phpstan/phpstan-phpunit": "^0.12.16",
+            "symfony/phpunit-bridge": "^4.2 || ^5",
             "symfony/process": "^2.3"
         },
-        "time": "2020-04-07T06:57:05+00:00",
+        "time": "2021-01-14T11:07:16+00:00",
         "type": "composer-plugin",
         "extra": {
             "class": "Composer\\Installers\\Plugin",
             "branch-alias": {
-                "dev-master": "1.0-dev"
+                "dev-main": "1.x-dev"
             }
         },
         "installation-source": "dist",
@@ -114,6 +115,7 @@
             "Porto",
             "RadPHP",
             "SMF",
+            "Starbug",
             "Thelia",
             "Whmcs",
             "WolfCMS",
@@ -154,6 +156,7 @@
             "phpbb",
             "piwik",
             "ppi",
+            "processwire",
             "puppet",
             "pxcms",
             "reindex",
@@ -173,6 +176,10 @@
             {
                 "url": "https://packagist.com",
                 "type": "custom"
+            },
+            {
+                "url": "https://github.com/composer",
+                "type": "github"
             },
             {
                 "url": "https://tidelift.com/funding/github/packagist/composer/composer",
@@ -313,31 +320,32 @@
     },
     {
         "name": "rhubarbgroup/redis-cache",
-        "version": "2.0.15",
-        "version_normalized": "2.0.15.0",
+        "version": "2.0.17",
+        "version_normalized": "2.0.17.0",
         "source": {
             "type": "git",
             "url": "https://github.com/rhubarbgroup/redis-cache.git",
-            "reference": "ea603d36106658cd56978aca4b91f1a2f0bf69f1"
+            "reference": "918c4b45ef6d278318809ba90d3979b5a3ed25b7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/rhubarbgroup/redis-cache/zipball/ea603d36106658cd56978aca4b91f1a2f0bf69f1",
-            "reference": "ea603d36106658cd56978aca4b91f1a2f0bf69f1",
+            "url": "https://api.github.com/repos/rhubarbgroup/redis-cache/zipball/918c4b45ef6d278318809ba90d3979b5a3ed25b7",
+            "reference": "918c4b45ef6d278318809ba90d3979b5a3ed25b7",
             "shasum": ""
         },
         "require": {
             "colinmollenhour/credis": "^1.11.1",
             "composer/installers": "~1.0",
             "mnsami/composer-custom-directory-installer": "^2.0",
+            "php": "^5.6|^7.0|^8.0",
             "predis/predis": "^1.1"
         },
         "require-dev": {
-            "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+            "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
             "phpcompatibility/phpcompatibility-wp": "^2.1",
             "wp-coding-standards/wpcs": "^2.3"
         },
-        "time": "2020-09-29T16:23:28+00:00",
+        "time": "2020-12-27T00:14:35+00:00",
         "type": "wordpress-plugin",
         "extra": {
             "installer-paths": {

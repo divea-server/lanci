@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.0.17
+
+- Code cleanup
+- Fixed missing metrics
+- Fixed filesystem test
+
+## 2.0.16
+
+- Updated Credis to v1.11.4
+- Fixed drop-in notice styling
+- Moved metrics into dedicated class
+- Added `redis_cache_validate_dropin` filter
+- Use `WP_DEBUG_DISPLAY` (instead of `WP_DEBUG`) constant to display debug information
+- Fixed rare error in `wp_cache_get_multiple()`
+- Removed `intval()` usage
+
 ## 2.0.15
 
 - Reverted `build_key()` changes due to issues in multisite environments
