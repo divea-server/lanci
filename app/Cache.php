@@ -39,8 +39,8 @@ class Cache
 
 	static function flush() 
 	{
-		static $completed = false;
-		if ( ! $completed ) {
+		// static $completed = false;
+		// if ( ! $completed ) {
 
 			// limpa o redis
 			self::redisFlush();
@@ -51,8 +51,8 @@ class Cache
 			// limpa o autoptimize
 			self::autoptimizeFlush();
 			
-			$completed = true;
-		}
+		// 	$completed = true;
+		// }
 	}
 
 	static function autoFlush()
