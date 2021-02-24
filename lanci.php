@@ -21,15 +21,18 @@
 	// inciando plugins-vendor
 	if(defined("LANCI_SERVER_ALIAS")) {
 
-		if( ! class_exists("\NginxCache"))
-		require_once "vendor/Nginx-FastCGI-Cache/nginx-cache.php";
+		if( ! class_exists("\NginxCache")) {
+			require_once  LANCI_PATH . "/vendor/Nginx-FastCGI-Cache/nginx-cache.php";
+		}
 
-		if( ! class_exists("\Rhubarb\RedisCache\Plugin"))
-		require_once "vendor/redis-cache/redis-cache.php";
+		if( ! class_exists("\Rhubarb\RedisCache\Plugin")) {
+			require_once  LANCI_PATH . "/vendor/redis-cache/redis-cache.php";
+			require_once  LANCI_PATH . "/vendor/redis-cache/dependencies/predis/predis/autoload.php";
+		}
 
-		if( ! class_exists("\CleanImageFilenames"))
-		require_once "vendor/clean-image-filenames/clean-image-filenames.php";
-
+		if( ! class_exists("\CleanImageFilenames")) {
+			require_once  LANCI_PATH . "/vendor/clean-image-filenames/clean-image-filenames.php";
+		}
 	}
 
 
