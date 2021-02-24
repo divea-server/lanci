@@ -27,7 +27,7 @@
 
 		if( ! class_exists("\Rhubarb\RedisCache\Plugin")) {
 			require_once  LANCI_PATH . "/vendor/redis-cache/redis-cache.php";
-			require_once  LANCI_PATH . "/vendor/redis-cache/dependencies/predis/predis/autoload.php";
+			// require_once  LANCI_PATH . "/vendor/redis-cache/dependencies/predis/predis/autoload.php";
 		}
 
 		if( ! class_exists("\CleanImageFilenames")) {
