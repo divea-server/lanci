@@ -58,23 +58,23 @@
 		],
 		"Redis" => [
 			'Client' 		=> @$redis_client,
-			'Key Prefix' 	=> @trim( $redis_prefix ),
+			// 'Key Prefix' 	=> @trim( $redis_prefix ),
 			'Drop-in'		=> $drop_in,
 			'Disabled'		=> defined( 'WP_REDIS_DISABLED' ) && WP_REDIS_DISABLED ? "yes" : "no",
-			'Max. TTL'		=> @$redis_maxttl . ( isset($redis_maxttl) && !is_int( $redis_maxttl) && !ctype_digit($redis_maxttl) ? ' - This doesn’t appear to be a valid number' : "" )
+			// 'Max. TTL'		=> @$redis_maxttl . ( isset($redis_maxttl) && !is_int( $redis_maxttl) && !ctype_digit($redis_maxttl) ? ' - This doesn’t appear to be a valid number' : "" )
 		],
 		"Redis Connection" => [
 			"Status"		=> $roc->get_status(),
-			"Host"			=> esc_html( @$diagnostics['host'] ),
-			"Cluster"		=> @$cluster,
-			"Shards"		=> @$shards,
-			"Servers"		=> @$servers,
-			"Port"			=> esc_html( @$diagnostics['port'] ),
-			"Username"		=> esc_html( @$diagnostics['password'][0] ),
+			// "Host"			=> esc_html( @$diagnostics['host'] ),
+			// "Cluster"		=> @$cluster,
+			// "Shards"		=> @$shards,
+			// "Servers"		=> @$servers,
+			// "Port"			=> esc_html( @$diagnostics['port'] ),
+			// "Username"		=> esc_html( @$diagnostics['password'][0] ),
 			"Database"		=> @$diagnostics['database'],
 			"Con. Timeout"	=> @$diagnostics['timeout'],
 			"Read Timeout"	=> @$diagnostics['read_timeout'],
-			"Retry Inter."	=> @$diagnostics['retry_interval'],
+			// "Retry Inter."	=> @$diagnostics['retry_interval'],
 			"Redis Version"	=> @$redis_version 
 		]
 	];
