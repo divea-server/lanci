@@ -22,13 +22,13 @@
 	if(defined("LANCI_SERVER_ALIAS")) {
 
 		if( ! class_exists("\NginxCache"))
-		require "vendor/Nginx-FastCGI-Cache/nginx-cache.php";
+		require_once "vendor/Nginx-FastCGI-Cache/nginx-cache.php";
 
 		if( ! class_exists("\Rhubarb\RedisCache\Plugin"))
-		require "vendor/redis-cache/redis-cache.php";
+		require_once "vendor/redis-cache/redis-cache.php";
 
 		if( ! class_exists("\CleanImageFilenames"))
-		require "vendor/clean-image-filenames/clean-image-filenames.php";
+		require_once "vendor/clean-image-filenames/clean-image-filenames.php";
 
 	}
 
@@ -48,7 +48,8 @@
 
 
 	// verificando atualizações
-	$lanci_update = \Puc_v4_Factory::buildUpdateChecker(
+	require_once 'vendor/yahnis-elsts/plugin-update-checker.php';
+	$lanci_update = Puc_v4_Factory::buildUpdateChecker(
 		'https://raw.githubusercontent.com/divea-server/lanci/master/release.json?flush_cache=true',
 		__FILE__,
 		"lanci"
