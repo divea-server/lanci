@@ -48,7 +48,7 @@
 
 
 	// verificando atualizações
-	require_once 'vendor/yahnis-elsts/plugin-update-checker.php';
+	require_once 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 	$lanci_update = Puc_v4_Factory::buildUpdateChecker(
 		'https://raw.githubusercontent.com/divea-server/lanci/master/release.json?flush_cache=true',
 		__FILE__,
