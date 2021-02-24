@@ -86,8 +86,8 @@
 <table class="form-table">
 	<?php 
 		foreach($i as $key => $value) : 
-			if(empty(trim($value)))
-				continue;
+			// if(empty(trim($value)))
+			// 	continue;
 	?>
 	<tr>
         <td><?php echo $key ?>: </td>
