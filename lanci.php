@@ -8,15 +8,15 @@
 		Author: Divea Lanci
 		Author URI: http://divea.com.br
 	*/
-
-	// composer autoload
-	require_once "vendor/autoload.php";
 	
 	define("LANCI_PATH", dirname(__FILE__));
 	define("LANCI_PUBLIC_PATH", plugin_dir_url(__FILE__));
+
+	// composer autoload
+	require_once LANCI_PATH . "/vendor/autoload.php";
 	
 	// recomendando outros plugins
-	require_once "required.php";
+	require_once LANCI_PATH . "/required.php";
 
 	// inciando plugins-vendor
 	if(defined("LANCI_SERVER_ALIAS")) {
@@ -48,7 +48,7 @@
 
 
 	// verificando atualizações
-	require_once 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
+	// require_once 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 	$lanci_update = Puc_v4_Factory::buildUpdateChecker(
 		'https://raw.githubusercontent.com/divea-server/lanci/master/release.json?flush_cache=true',
 		__FILE__,
