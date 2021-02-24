@@ -6,8 +6,8 @@ class Cache
 {
 	static function init()
 	{
-		if(is_admin())
-			self::redisFlush();
+		// if(is_admin())
+		// 	self::redisFlush();
 
 		// adicionando eventos para limpar cache automaticamente
 		self::autoFlush();
@@ -39,20 +39,14 @@ class Cache
 
 	static function flush() 
 	{
-		// static $completed = false;
-		// if ( ! $completed ) {
+		// limpa o redis
+		self::redisFlush();
 
-			// limpa o redis
-			self::redisFlush();
+		// limpa o nginx
+		self::nginxCacheFlush();
 
-			// limpa o nginx
-			self::nginxCacheFlush();
-
-			// limpa o autoptimize
-			self::autoptimizeFlush();
-			
-		// 	$completed = true;
-		// }
+		// limpa o autoptimize
+		self::autoptimizeFlush();
 	}
 
 	static function autoFlush()
