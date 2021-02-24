@@ -87,7 +87,7 @@ class Cache
 
 	private static function redisDisable()
 	{
-		unlink(WP_CONTENT_DIR . '/object-cache.php');
+		@unlink(WP_CONTENT_DIR . '/object-cache.php');
 	}
 
 	private static function redisFlush()
