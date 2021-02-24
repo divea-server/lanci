@@ -29,9 +29,9 @@ class Cache
 		self::flush();
 
 		// Redis
+		self::redisDisable();
 		$redisPlugin = \Rhubarb\RedisCache\Plugin::instance();
 		$redisPlugin->on_deactivation($plugin);
-		self::redisDisable();
 
 		// Nginx Deactivate
 		delete_option("nginx_cache_path");
