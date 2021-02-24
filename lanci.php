@@ -4,7 +4,7 @@
 		Plugin Name: Lanci Server
 		Plugin URI:
 		Description: Otimizações do seu Servidor Lanci
-		Version: 1.2.6
+		Version: 1.2.7
 		Author: Divea Lanci
 		Author URI: http://divea.com.br
 	*/
@@ -14,6 +14,7 @@
 	
 	define("LANCI_PATH", dirname(__FILE__));
 	define("LANCI_PUBLIC_PATH", plugin_dir_url(__FILE__));
+	define("WP_REDIS_SELECTIVE_FLUSH", true);
 
 	// recomendando outros plugins
 	require_once "required.php";
@@ -78,14 +79,14 @@
 
 
 	// removendo a opção de desativar alguns plugins
-	// add_filter('plugin_action_links', 'disable_plugin_deactivation', 10, 4);
-	// function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $context ) {
-	//  	if(array_key_exists("deactivate", $actions) && in_array($plugin_file, [
-	//  		'lanci/lanci.php'
-	//  	]))
-	//  	unset($actions['deactivate']);
-	// 	return $actions;
-	// }
+	add_filter('plugin_action_links', 'disable_plugin_deactivation', 10, 4);
+	function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $context ) {
+	 	if(array_key_exists("deactivate", $actions) && in_array($plugin_file, [
+	 		'lanci/lanci.php'
+	 	]))
+	 	unset($actions['deactivate']);
+		return $actions;
+	}
 
 
 	// iniciando plugin
@@ -97,7 +98,7 @@
 	
 	if( is_admin() && ! is_file(LANCI_PATH . "/release.json")) file_put_contents( LANCI_PATH . "/release.json", json_encode([
 	 	"name" 			=> "Lanci",
-	 	"version" 		=> "1.2.6",
+	 	"version" 		=> "1.2.7",
 	 	"download_url" 	=> "https://github.com/divea-server/lanci/archive/master.zip",
 		"sections" 		=> [
 			"description" => "

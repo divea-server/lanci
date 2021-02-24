@@ -4,7 +4,7 @@ namespace Lanci;
 
 class App
 {
-	static $version = "1.2.6";
+	static $version = "1.2.7";
 
 	static function init()
 	{
