@@ -11,21 +11,21 @@
 				'slug'			=> 'autoptimize',
 				'required'		=> true
 			],
-			[
-				'name'      	=> 'reSmush.it',
-				'slug'      	=> 'resmushit-image-optimizer',
-				'required'  	=> true,
-			],
-			[
-				'name'      	=> 'Redirection',
-				'slug'      	=> 'redirection',
-				'required'  	=> false,
-			],
-			[
-				'name'      	=> 'Yoast Duplicate Post',
-				'slug'      	=> 'duplicate-post',
-				'required'  	=> false,
-			],
+			// [
+			// 	'name'      	=> 'reSmush.it',
+			// 	'slug'      	=> 'resmushit-image-optimizer',
+			// 	'required'  	=> true,
+			// ],
+			// [
+			// 	'name'      	=> 'Redirection',
+			// 	'slug'      	=> 'redirection',
+			// 	'required'  	=> false,
+			// ],
+			// [
+			// 	'name'      	=> 'Yoast Duplicate Post',
+			// 	'slug'      	=> 'duplicate-post',
+			// 	'required'  	=> false,
+			// ],
 			// [
 			// 	'name'        	=> 'Yoast SEO',
 			// 	'slug'        	=> 'wordpress-seo',

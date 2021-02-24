@@ -6,8 +6,8 @@ class Cache
 {
 	static function init()
 	{
-		if(is_admin())
-			self::redisFlush();
+		// if(is_admin())
+		// 	self::redisFlush();
 
 		// adicionando eventos para limpar cache automaticamente
 		self::autoFlush();
@@ -29,8 +29,8 @@ class Cache
 		self::flush();
 
 		// Redis
-		// $redisPlugin = \Rhubarb\RedisCache\Plugin::instance();
-		// $redisPlugin->on_deactivation($plugin);
+		$redisPlugin = \Rhubarb\RedisCache\Plugin::instance();
+		$redisPlugin->on_deactivation($plugin);
 		self::redisDisable();
 
 		// Nginx Deactivate
@@ -39,8 +39,8 @@ class Cache
 
 	static function flush() 
 	{
-		// static $completed = false;
-		// if ( ! $completed ) {
+		static $completed = false;
+		if ( ! $completed ) {
 
 			// limpa o redis
 			self::redisFlush();
@@ -51,8 +51,8 @@ class Cache
 			// limpa o autoptimize
 			self::autoptimizeFlush();
 			
-		// 	$completed = true;
-		// }
+			$completed = true;
+		}
 	}
 
 	static function autoFlush()
