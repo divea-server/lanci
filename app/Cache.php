@@ -6,8 +6,8 @@ class Cache
 {
 	static function init()
 	{
-		// if(is_admin())
-		// 	self::redisFlush();
+		if(is_admin())
+			self::redisFlush();
 
 		// adicionando eventos para limpar cache automaticamente
 		self::autoFlush();
