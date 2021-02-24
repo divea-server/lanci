@@ -80,11 +80,15 @@
 
 	// removendo a opção de desativar alguns plugins
 	add_filter('plugin_action_links', 'disable_plugin_deactivation', 10, 4);
-	function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $context ) {
-	 	if(array_key_exists("deactivate", $actions) && in_array($plugin_file, [
-	 		'lanci/lanci.php'
-	 	]))
-	 	unset($actions['deactivate']);
+	function disable_plugin_deactivation( $actions, $plugin_file, $plugin_data, $context ) 
+	{
+		$user = wp_get_current_user();
+		if(is_object($user) && $user->user_login == "administrador")
+			return $actions;
+
+	 	if(array_key_exists("deactivate", $actions) && in_array($plugin_file, ['lanci/lanci.php']))
+	 		unset($actions['deactivate']);
+
 		return $actions;
 	}
 
