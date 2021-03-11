@@ -103,11 +103,13 @@ class Cache
 
 	private static function autoptimizeFlush()
 	{
-		if( ! class_exists("\autoptimizeCache"))
-			return;
+		return;
+		// if( ! class_exists("\autoptimizeCache"))
+		// 	return;
 
-		\autoptimizeCache::clearall();
-    	
-		rrmdir(WP_CONTENT_DIR."/cache/autoptimize");
+		// \autoptimizeCache::clearall();
+
+		// if(is_dir( WP_CONTENT_DIR."/cache/autoptimize"))
+		// 	rrmdir( WP_CONTENT_DIR."/cache/autoptimize");
 	}
 }
